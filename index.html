@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Tours & Travels Solutions</title>
+    <style>
+        body {
+            font-family: Baguette;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: none;
+            width: 100%;
+        }
+        .controls {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            user-select: none;
+            transform: translateY(-50%);
+        }
+        .prev {
+            left: ;
+        }
+        .next {
+            right: 0;
+        }
+        .controls:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100px;
+            height: 70px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .gallery img:hover {
+            border: 2px solid #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Dev Tours & Travels Solutions</h1>
+        <p>Explore the beauty of Uttarakhand</p>
+
+        <div class="slideshow-container">
+            <img class="slides" src="https://www.holidify.com/images/bgImages/KEDARNATH.jpg" alt="Place 1">
+            <img class="slides" src="https://hblimg.mmtcdn.com/content/hubble/img/dest_march/mmt/destination/m_mussoorie-landscape_l_400_640.jpg" alt="Place 2">
+            <img class="slides" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_xc2ReK-sxHwhh19iJGmWC7I3e6w5adOD_w&s" alt="Place 3">
+
+            <a class="controls prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="controls next" onclick="plusSlides(1)">&#10095;</a>
+            <a class="controls next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <div class="gallery">
+            <img src="https://www.holidify.com/images/bgImages/KEDARNATH.jpg" alt="Place 1" alt="Place 1" onclick="currentSlide(1)">
+            <img src="https://hblimg.mmtcdn.com/content/hubble/img/dest_march/mmt/destination/m_mussoorie-landscape_l_400_640.jpg" alt="Place 2" onclick="currentSlide(2)">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_xc2ReK-sxHwhh19iJGmWC7I3e6w5adOD_w&s" alt="Place 3" onclick="currentSlide(3)">
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slides");
+            if (n > slides.length) {slideIndex = 1} 
+            if (n < 1) {slideIndex = slides.length}
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex-1].style.display = "block";  
+        }
+    </script>
+</body>
+</html>
